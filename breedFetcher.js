@@ -9,8 +9,8 @@ const fetchBreedDescription = function(breed, done) {
     if (err) done(err, null);
     else {
       const data = JSON.parse(body);
-      if (data.length === 0) done(new Error(`Specified breed ${breed} not found.`), null);
-      else done(null, data);
+      if (data.length === 0) done(undefined, null);
+      else done(null, data[0].description);
     }
   });
 };
